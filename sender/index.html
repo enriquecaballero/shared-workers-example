@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website 1</title>
+  </head>
+
+  <body>
+    <pre>This is website 1</pre>
+    <script>
+      var myWorker = new SharedWorker("../worker.js");
+
+      myWorker.port.onmessage = function(e) {
+        console.log("SENDER", e.data);
+      };
+
+      myWorker.port.start();
+
+      setInterval(() => {
+        myWorker.port.postMessage({
+          hello: "world"
+        });
+      }, 1500);
+    </script>
+  </body>
+</html>

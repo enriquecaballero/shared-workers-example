@@ -6,6 +6,7 @@ onconnect = function(e) {
 
   port.onmessage = function(e) {
     connections.forEach(function(connection) {
+      // Uncomment if if you want to block sending message to sender
       // if (connection !== port) {
       connection.postMessage(e.data);
       // }

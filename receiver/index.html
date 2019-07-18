@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website 2</title>
+  </head>
+
+  <body>
+    <pre>This is website 2</pre>
+    <script>
+      var myWorker = new SharedWorker("../worker.js");
+
+      myWorker.port.onmessage = function(e) {
+        console.log("RECEIVER", e.data);
+      };
+
+      myWorker.port.start();
+    </script>
+  </body>
+</html>
